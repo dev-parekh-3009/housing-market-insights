@@ -9,9 +9,12 @@ Done
 
 In progress
 - Find a way to make re-runs possible when setting up files for re-run
+  - This has been started by keep the original files in the parent folder and copying them with a current timestamp in the name into the new folder
+  - Rows from new files are appended to the bronze table, duplicate keys are not checked
+  - Into the silver table, rows are upserted, so there is no duplication. Uses `transaction_id` as the PK.
 
 To Do
-- Write source filename to the table
+- DONE: Write source filename to the table
 - Write rejected records to table
   - Write reason for rejection - how to derive this?
 - Add further table optimisations:
